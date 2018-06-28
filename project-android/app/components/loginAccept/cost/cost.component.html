@@ -1,0 +1,25 @@
+<sidebar #sidebar></sidebar>
+<ActionBar class="bg">
+        <StackLayout>
+                <GridLayout width="100%" height="100%">
+                        <Label horizontalAlignment="right" class="mdi rights" [text]="'mdi-menu' | fonticon" (tap) = "openDrawer()"></Label>
+                        <Label horizontalAlignment="left" class="mdi" [text]="'mdi-arrow-back' | fonticon" (tap) = "toBack()"></Label>
+                        <label horizontalAlignment="center" class="setCenter w Cloud-Lights" text="ค่าใช้จ่าย"></label>
+                </GridLayout>
+        </StackLayout>
+</ActionBar>
+
+<StackLayout>
+<ListView [items]="dataCost" (setupItemView)="onSetupItemView($event)" (itemTap)="onItemTap($event)">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                <StackLayout class="mtop" [class.odd]="odd" [class.even]="even">
+                        <GridLayout columns="20, 200, *" rows="15, 25, 35" width="100%" height="100%">
+                                <label row="0" col="0" text=""></label>
+                                <Label row="1" col="1" class = "Cloud-Light4" [text]='item.rightname'></Label>
+                                <label row="1" col="2" class = "Cloud-Light2 setCenter" text="รายละเอียด"></label>
+                                <Label row="2" col="1" class = "Cloud-Light4" [text]='"วันที่ " + getFormatDate(item.visitdate)'></Label>
+                        </GridLayout>
+                </StackLayout>
+        </ng-template>
+</ListView>                               
+</StackLayout>
